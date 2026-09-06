@@ -1,0 +1,28 @@
+---
+import '@fontsource/barlow-condensed/700.css';
+import '@fontsource/barlow-condensed/800.css';
+import '@fontsource/barlow-condensed/900.css';
+import '@fontsource/barlow-condensed/800-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/700.css';
+import '../styles/global.css';
+interface Props { title?: string; description?: string; }
+const { title = 'Big Marketing — Performance marketing + IA', description = 'Piensa BIG. Crece con inteligencia. Campañas de captación, publicaciones automatizadas, chatbots y creatividad con IA para impulsar tu negocio.' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4f2eb" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/big-star.webp" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body><a class="skip-link" href="#contenido">Saltar al contenido</a><slot /></body>
+</html>

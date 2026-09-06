@@ -1,0 +1,19 @@
+---
+import Arrow from './Arrow.astro';
+import { services } from '../lib/services';
+---
+<section class="contact shell" id="contacto" aria-labelledby="contact-title">
+  <div class="contact-copy reveal"><h2 id="contact-title">Tu próximo<br /><em>gran paso</em><br />empieza aquí.</h2><p>Cuéntanos qué quieres conseguir.<br />Diseñaremos el siguiente movimiento<br class="desktop-break" /> de tu marca.</p></div>
+  <form id="contact-form" class="contact-form" method="post" action="/api/contact">
+    <p class="preview-note">Marca en preparación. Formulario de demostración: utiliza datos de prueba.</p>
+    <div class="form-pair"><label>Nombre<input name="name" autocomplete="name" placeholder="Tu nombre" minlength="2" maxlength="100" required /></label><label>Email profesional<input name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" maxlength="254" required /></label></div>
+    <label>Empresa<input name="company" autocomplete="organization" placeholder="Nombre de tu empresa" minlength="2" maxlength="160" required /></label>
+    <label>¿Qué necesitas?<select name="service" required><option value="" disabled selected>Selecciona un servicio</option>{services.map(s => <option value={s.id}>{s.title}</option>)}<option value="estrategia">Una estrategia completa</option></select></label>
+    <label>Cuéntanos tu idea<textarea name="message" rows="4" placeholder="Objetivos, retos, próximos planes…" minlength="10" maxlength="3000" required></textarea></label>
+    <div class="honeypot" aria-hidden="true"><label>Tu web<input name="website" autocomplete="off" tabindex="-1" /></label></div>
+    <label class="consent"><input type="checkbox" name="consent" required /><span>He leído y acepto la <a href="/privacidad">política de privacidad.</a></span></label>
+    <button type="submit" class="button button-dark submit-button"><span>Hagamos algo BIG</span><Arrow /></button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+    <noscript><p>Activa JavaScript para enviar el formulario y recibir su confirmación.</p></noscript>
+  </form>
+</section>

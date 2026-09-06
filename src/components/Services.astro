@@ -1,0 +1,11 @@
+---
+import Arrow from './Arrow.astro';
+import { services } from '../lib/services';
+---
+<section id="servicios" aria-labelledby="services-title">
+  <div class="services-heading"><div class="shell section-heading"><h2 id="services-title" class="reveal">Menos tareas.<br />Más impacto.</h2><p class="reveal">Conectamos estrategia, contenido y automatización para que cada acción tenga sentido.</p></div></div>
+  <div class="services-content shell">
+    <figure class="services-art reveal"><img src="/images/big-links.webp" alt="Tres eslabones escultóricos entrelazados en naranja y cromo" width="1254" height="1254" loading="lazy" /><figcaption>Tecnología que conecta.<br />Ideas que convierten.</figcaption></figure>
+    <div class="service-list">{services.map((service, i) => <a href="#contacto" class="service-row reveal" data-service={service.id}><span class="service-number">0{i+1}</span><div><h3>{service.title}</h3><p>{service.description}</p></div><Arrow /></a>)}</div>
+  </div>
+</section>
